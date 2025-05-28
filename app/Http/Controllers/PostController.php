@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
-use App\Models\{Event,Category,Celebrity,Guest,Modal};
+use App\Models\{Event, Category, Celebrity, Guest, Modal};
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -152,7 +153,6 @@ class PostController extends Controller
         Event::findOrFail($request->id)->delete();
         return back()->with('success', 'Event deleted');
     }
-
 
     public function category()
     {
@@ -428,5 +428,115 @@ class PostController extends Controller
     {
         Modal::findOrFail($request->id)->delete();
         return back()->with('success', 'modal deleted');
+    }
+
+    public function pageantsubtitlem()
+    {
+        $pageantsubtitlems = DB::table('pageantsubtitlems')->latest()->get();
+        return view('admin.pageantsubtitlem.index', compact('pageantsubtitlems'));
+    }
+
+    public function pageantsubtitlemstore(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required',
+        ]);
+
+        DB::table('pageantsubtitlems')->insert([
+            'name' => $data['name'],
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return back()->with('success', 'Pageant Subtitle Created');
+    }
+
+    public function pageantsubtitlemedit(Request $request)
+    {
+        $pageantsubtitlem = DB::table('pageantsubtitlems')->where('id', $request->id)->first();
+
+        if (!$pageantsubtitlem) {
+            abort(404);
+        }
+
+        return view('admin.pageantsubtitlem.edit', compact('pageantsubtitlem'));
+    }
+
+    public function pageantsubtitlemupdate(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required',
+        ]);
+
+        DB::table('pageantsubtitlems')
+            ->where('id', $request->id)
+            ->update([
+                'name' => $data['name'],
+                'updated_at' => now(),
+            ]);
+
+        return back()->with('success', 'Pageant Subtitle Updated');
+    }
+
+    public function pageantsubtitlemdelete(Request $request)
+    {
+        DB::table('pageantsubtitlems')->where('id', $request->id)->delete();
+
+        return back()->with('success', 'Pageant Subtitle Deleted');
+    }
+
+    public function pageantsubtitlef()
+    {
+        $pageantsubtitlefs = DB::table('pageantsubtitlefs')->latest()->get();
+        return view('admin.pageantsubtitlef.index', compact('pageantsubtitlefs'));
+    }
+
+    public function pageantsubtitlefstore(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required',
+        ]);
+
+        DB::table('pageantsubtitlefs')->insert([
+            'name' => $data['name'],
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return back()->with('success', 'Pageant Subtitle F Created');
+    }
+
+    public function pageantsubtitlefedit(Request $request)
+    {
+        $pageantsubtitlef = DB::table('pageantsubtitlefs')->where('id', $request->id)->first();
+
+        if (!$pageantsubtitlef) {
+            abort(404);
+        }
+
+        return view('admin.pageantsubtitlef.edit', compact('pageantsubtitlef'));
+    }
+
+    public function pageantsubtitlefupdate(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required',
+        ]);
+
+        DB::table('pageantsubtitlefs')
+            ->where('id', $request->id)
+            ->update([
+                'name' => $data['name'],
+                'updated_at' => now(),
+            ]);
+
+        return back()->with('success', 'Pageant Subtitle F Updated');
+    }
+
+    public function pageantsubtitlefdelete(Request $request)
+    {
+        DB::table('pageantsubtitlefs')->where('id', $request->id)->delete();
+
+        return back()->with('success', 'Pageant Subtitle F Deleted');
     }
 }

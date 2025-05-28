@@ -67,6 +67,18 @@ Route::middleware('auth')->group(function () {
     Route::post('/adminmodalupdate', [PostController::class, 'modalupdate'])->name('modal.update');
     Route::post('/adminmodaldelete', [PostController::class, 'modaldelete'])->name('modal.delete');
 
+    Route::get('/adminpageantsubtitlem', [PostController::class, 'pageantsubtitlem'])->name('pageantsubtitlem.index');
+    Route::post('/adminpageantsubtitlemstore', [PostController::class, 'pageantsubtitlemstore'])->name('pageantsubtitlem.store');
+    Route::get('/adminpageantsubtitlemedit', [PostController::class, 'pageantsubtitlemedit'])->name('pageantsubtitlem.edit');
+    Route::post('/adminpageantsubtitlemupdate', [PostController::class, 'pageantsubtitlemupdate'])->name('pageantsubtitlem.update');
+    Route::post('/adminpageantsubtitlemdelete', [PostController::class, 'pageantsubtitlemdelete'])->name('pageantsubtitlem.delete');
+
+    Route::get('/adminpageantsubtitlef', [PostController::class, 'pageantsubtitlef'])->name('pageantsubtitlef.index');
+    Route::post('/adminpageantsubtitlefstore', [PostController::class, 'pageantsubtitlefstore'])->name('pageantsubtitlef.store');
+    Route::get('/adminpageantsubtitlefedit', [PostController::class, 'pageantsubtitlefedit'])->name('pageantsubtitlef.edit');
+    Route::post('/adminpageantsubtitlefupdate', [PostController::class, 'pageantsubtitlefupdate'])->name('pageantsubtitlef.update');
+    Route::post('/adminpageantsubtitlefdelete', [PostController::class, 'pageantsubtitlefdelete'])->name('pageantsubtitlef.delete');
+
 
 
     Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
