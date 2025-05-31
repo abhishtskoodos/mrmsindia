@@ -31,6 +31,7 @@ return array(
     'App\\Http\\Requests\\Auth\\LoginRequest' => $baseDir . '/app/Http/Requests/Auth/LoginRequest.php',
     'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
     'App\\Models\\Celebrity' => $baseDir . '/app/Models/Celebrity.php',
+    'App\\Models\\City' => $baseDir . '/app/Models/City.php',
     'App\\Models\\Event' => $baseDir . '/app/Models/Event.php',
     'App\\Models\\Guest' => $baseDir . '/app/Models/Guest.php',
     'App\\Models\\Modal' => $baseDir . '/app/Models/Modal.php',
