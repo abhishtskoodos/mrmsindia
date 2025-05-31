@@ -1111,8 +1111,8 @@
                             @foreach ($modals as $modal)
                             <div class="swiper-slide card-item">
                                 <div class="mib-box">
-                                    <div class="mb-img"><img src="include/images/sl1.jpg" alt=""></div>
-                                    <div class="mb-text">NATELIE JOHN</div>
+                                    <div class="mb-img"><img src="{{ $modal->image }}" alt="{{ $modal->alt }}"></div>
+                                    <div class="mb-text">{{ $modal->name }}</div>
                                     <div class="mb-hover">
                                         <p> Height - 174 cm </p>
                                         <p> Weight - 56 kg </p>
