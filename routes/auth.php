@@ -79,6 +79,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/adminpageantsubtitlefupdate', [PostController::class, 'pageantsubtitlefupdate'])->name('pageantsubtitlef.update');
     Route::post('/adminpageantsubtitlefdelete', [PostController::class, 'pageantsubtitlefdelete'])->name('pageantsubtitlef.delete');
 
+    Route::get('/admincontact', [PostController::class, 'contact'])->name('contact.index');
+
+    Route::get('/adminmedia', [PostController::class, 'media'])->name('media.index');
+    Route::post('/adminmediastore', [PostController::class, 'mediastore'])->name('media.store');
+    Route::get('/adminmediaedit', [PostController::class, 'mediaedit'])->name('media.edit');
+    Route::post('/adminmediaupdate', [PostController::class, 'mediaupdate'])->name('media.update');
+    Route::post('/adminmediadelete', [PostController::class, 'mediadelete'])->name('media.delete');
 
 
     Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])

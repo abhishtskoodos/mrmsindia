@@ -535,6 +535,7 @@ class ComposerStaticInitc61ff82cbf0142a401a48a8161e1595a
         'App\\Models\\Event' => __DIR__ . '/../..' . '/app/Models/Event.php',
         'App\\Models\\Guest' => __DIR__ . '/../..' . '/app/Models/Guest.php',
         'App\\Models\\Modal' => __DIR__ . '/../..' . '/app/Models/Modal.php',
+        'App\\Models\\PageantRegistration' => __DIR__ . '/../..' . '/app/Models/PageantRegistration.php',
         'App\\Models\\Post' => __DIR__ . '/../..' . '/app/Models/Post.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',

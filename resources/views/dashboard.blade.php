@@ -36,6 +36,14 @@
                 <a href="{{ route('pageantsubtitlef.index') }}" class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition">
                     <h2 class="text-lg font-semibold text-gray-800">Pageant Subtitle Female</h2>
                 </a>
+
+                <a href="{{ route('contact.index') }}" class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition">
+                    <h2 class="text-lg font-semibold text-gray-800">Contact</h2>
+                </a>
+
+                <a href="{{ route('media.index') }}" class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition">
+                    <h2 class="text-lg font-semibold text-gray-800">Media</h2>
+                </a>
     
                 <!-- Add more cards here if needed -->
                 

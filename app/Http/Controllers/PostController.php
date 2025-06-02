@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
-use App\Models\{Event, Category, Celebrity, Guest, Modal};
+use App\Models\{Event, Category, Celebrity, Guest, Modal,Media};
 use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
@@ -538,5 +538,80 @@ class PostController extends Controller
         DB::table('pageantsubtitlefs')->where('id', $request->id)->delete();
 
         return back()->with('success', 'Pageant Subtitle F Deleted');
+    }
+
+    public function contact(){
+        $data['contacts'] = DB::table('contacts')->paginate(20);
+
+        return view('admin.contact.contact',$data);
+    }
+
+    public function media()
+    {
+        $medias = Media::latest()->get();
+        return view('admin.media.index', compact('medias'));
+    }
+
+    public function mediastore(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required',
+            'alt' => 'nullable',
+            'image' => 'nullable|image',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+
+            // Make sure public/medias directory exists
+            $image->move(public_path('media'), $imageName);
+
+            $data['image'] = 'media/' . $imageName;
+        }
+
+        Media::create($data);
+        return back()->with('success', 'media created');
+    }
+
+    public function mediaedit(Request $request)
+    {
+        $media = Media::findOrFail($request->id);
+        return view('admin.media.edit', compact('media'));
+    }
+
+    public function mediaupdate(Request $request)
+    {
+        $media = Media::findOrFail($request->id);
+
+        $data = $request->validate([
+            'name' => 'required',
+            'alt' => 'nullable',
+            'image' => 'nullable|image',
+        ]);
+
+        if ($request->hasFile('image')) {
+            if ($media->image && file_exists(public_path($media->image))) {
+                unlink(public_path($media->image));
+            }
+            if (!file_exists(public_path('media'))) {
+                mkdir(public_path('media'), 0755, true);
+            }
+
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $image->move(public_path('media'), $imageName);
+
+            $data['image'] = 'media/' . $imageName;
+        }
+
+        $media->update($data);
+        return back()->with('success', 'media updated');
+    }
+
+    public function mediadelete(Request $request)
+    {
+        Media::findOrFail($request->id)->delete();
+        return back()->with('success', 'media deleted');
     }
 }

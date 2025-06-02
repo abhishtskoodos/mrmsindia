@@ -35,6 +35,7 @@ return array(
     'App\\Models\\Event' => $baseDir . '/app/Models/Event.php',
     'App\\Models\\Guest' => $baseDir . '/app/Models/Guest.php',
     'App\\Models\\Modal' => $baseDir . '/app/Models/Modal.php',
+    'App\\Models\\PageantRegistration' => $baseDir . '/app/Models/PageantRegistration.php',
     'App\\Models\\Post' => $baseDir . '/app/Models/Post.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',

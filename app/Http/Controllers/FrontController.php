@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\{Category, Event, Celebrity, Guest, Modal,PageantRegistration};
+use App\Models\{Category, Event, Celebrity, Guest, Modal,PageantRegistration,Media};
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
@@ -60,7 +60,8 @@ class FrontController extends Controller
 
     public function sponsers()
     {
-        return view('frontend.sponsers');
+        $data['medias'] = Media::get();
+        return view('frontend.sponsers', $data);
     }
 
     public function models()
