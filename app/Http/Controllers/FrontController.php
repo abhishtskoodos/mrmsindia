@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\{Category, Event, Celebrity, Guest, Modal,PageantRegistration,Media};
+use App\Models\{Category, Event, Celebrity, Guest, Modal,PageantRegistration,Media,Faq,Value};
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
@@ -26,7 +26,10 @@ class FrontController extends Controller
 
     public function contact()
     {
-        return view('frontend.contact-us');
+        $data['faqs'] = Faq::get();
+        $data['value'] = Value::first();
+        // dd($data['value']);
+        return view('frontend.contact-us',$data);
     }
 
     public function contact_store(Request $request)
@@ -61,6 +64,7 @@ class FrontController extends Controller
     public function sponsers()
     {
         $data['medias'] = Media::get();
+        $data['value'] = Value::first();
         return view('frontend.sponsers', $data);
     }
 

@@ -110,7 +110,17 @@
                     <h4 class="heading"> FAQs </h4>
 
                     <div class="faq-box">
+
                         <div class="faq-list">
+                            @if(!empty($faqs) && $faqs->count() > 0)
+                                @foreach($faqs as $faq)
+                                    <div class="faq-item">
+                                        <h4>{{ $faq->question }}</h4>
+                                        <p>{{ $faq->answer }}</p>
+                                    </div>
+                                @endforeach
+                            @else
+                               
                             <div class="faq-item">
                                 <h4> What is the glam event & talent hunt ? </h4>
                                 <p> A brief mention of customization, attention to detail, and client satisfaction </p>
@@ -147,6 +157,7 @@
                                 <h4> Benefits </h4>
                                 <p> A brief mention of customization, attention to detail, and client satisfaction </p>
                             </div>
+                            @endif
                         </div>
                     </div>
 
@@ -167,22 +178,17 @@
                             <div class="as-item">
                                 <div class="asi-box">
                                     <h4> Address </h4>
-                                    <p> Overview of services provided (e.g., weddings, corporate events, luxury parties,
-                                        destination events) </p>
-                                    <p> A brief mention of customization, attention to detail, and client satisfaction </p>
+                                    <p>{{ $value->value_1 }}</p>
                                 </div>
                             </div>
                             <div class="as-item">
                                 <div class="asi-box">
                                     <h4> Contact Details </h4>
-                                    <p> Overview of services provided (e.g., weddings, corporate events, luxury parties,
-                                        destination events) </p>
-                                    <p> A brief mention of customization, attention to detail, and client satisfaction </p>
+                                    <p>{{ $value->value_2 }}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

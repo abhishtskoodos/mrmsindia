@@ -52,12 +52,13 @@
                                 @foreach ($medias as $media)
                                     <div class="swiper-slide card-item">
                                         <div class="mib-box">
-                                            <div class="mb-img"><img src="{{ $media->image }}" alt="{{ $media->alt }}"></div>
+                                            <div class="mb-img"><img src="{{ $media->image }}"
+                                                    alt="{{ $media->alt }}"></div>
                                             <div class="mb-text">{{ $media->name }}</div>
                                         </div>
                                     </div>
                                 @endforeach
-                                @else
+                            @else
                                 <div class="swiper-slide card-item">
                                     <div class="mib-box">
                                         <div class="mb-img"><img src="include/images/sl1.jpg" alt=""></div>
@@ -85,112 +86,6 @@
                             @endif
                         </div>
 
-                        <div class="card-main-box">
-                            <div class="swiper-button-next">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="74" height="74"
-                                    viewBox="0 0 74 74" fill="none">
-                                    <rect x="74" width="74" height="74" rx="37"
-                                        transform="rotate(90 74 0)" fill="url(#paint0_linear_830_1132)" />
-                                    <path
-                                        d="M34.4841 49.284L46.7681 37L34.4841 24.716L36.5561 22.644L50.9121 37L36.5561 51.356L34.4841 49.284Z"
-                                        fill="#131313" />
-                                    <path d="M48.8398 35.52V38.48H23.6798V35.52H48.8398Z" fill="#131313" />
-                                    <defs>
-                                        <linearGradient id="paint0_linear_830_1132" x1="74" y1="37.0003"
-                                            x2="148" y2="37.0003" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#BD7905" />
-                                            <stop offset="1" stop-color="#FFDD55" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
-                            <div class="swiper-button-prev">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="74" height="74"
-                                    viewBox="0 0 74 74" fill="none">
-                                    <rect y="74" width="74" height="74" rx="37"
-                                        transform="rotate(-90 0 74)" fill="url(#paint0_linear_830_1136)" />
-                                    <path
-                                        d="M39.5159 24.716L27.2319 37L39.5159 49.284L37.4439 51.356L23.0879 37L37.4439 22.644L39.5159 24.716Z"
-                                        fill="#131313" />
-                                    <path d="M25.1602 38.48V35.52H50.3202V38.48L25.1602 38.48Z" fill="#131313" />
-                                    <defs>
-                                        <linearGradient id="paint0_linear_830_1136" x1="0" y1="111"
-                                            x2="74" y2="111" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#BD7905" />
-                                            <stop offset="1" stop-color="#FFDD55" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper mySwiper2 mt-5">
-                        <div class="swiper-wrapper card-list" style="margin-bottom:90px;">
-                            <div class="swiper-slide card-item">
-                                <div class="mib-box">
-                                    <div class="mb-img"><img src="include/images/sl1.jpg" alt=""></div>
-                                    <div class="mb-text">NATELIE JOHN</div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide card-item">
-                                <div class="mib-box">
-                                    <div class="mb-img"><img src="include/images/sl2.jpg" alt=""></div>
-                                    <div class="mb-text">NATELIE JOHN</div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide card-item">
-                                <div class="mib-box">
-                                    <div class="mb-img"><img src="include/images/sl3.jpg" alt=""></div>
-                                    <div class="mb-text">NATELIE JOHN</div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide card-item">
-                                <div class="mib-box">
-                                    <div class="mb-img"><img src="include/images/sl3.jpg" alt=""></div>
-                                    <div class="mb-text">NATELIE JOHN</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card-main-box">
-                            <div class="swiper-button-next">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="74" height="74"
-                                    viewBox="0 0 74 74" fill="none">
-                                    <rect x="74" width="74" height="74" rx="37"
-                                        transform="rotate(90 74 0)" fill="url(#paint0_linear_830_1132)" />
-                                    <path
-                                        d="M34.4841 49.284L46.7681 37L34.4841 24.716L36.5561 22.644L50.9121 37L36.5561 51.356L34.4841 49.284Z"
-                                        fill="#131313" />
-                                    <path d="M48.8398 35.52V38.48H23.6798V35.52H48.8398Z" fill="#131313" />
-                                    <defs>
-                                        <linearGradient id="paint0_linear_830_1132" x1="74" y1="37.0003"
-                                            x2="148" y2="37.0003" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#BD7905" />
-                                            <stop offset="1" stop-color="#FFDD55" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
-                            <div class="swiper-button-prev">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="74" height="74"
-                                    viewBox="0 0 74 74" fill="none">
-                                    <rect y="74" width="74" height="74" rx="37"
-                                        transform="rotate(-90 0 74)" fill="url(#paint0_linear_830_1136)" />
-                                    <path
-                                        d="M39.5159 24.716L27.2319 37L39.5159 49.284L37.4439 51.356L23.0879 37L37.4439 22.644L39.5159 24.716Z"
-                                        fill="#131313" />
-                                    <path d="M25.1602 38.48V35.52H50.3202V38.48L25.1602 38.48Z" fill="#131313" />
-                                    <defs>
-                                        <linearGradient id="paint0_linear_830_1136" x1="0" y1="111"
-                                            x2="74" y2="111" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#BD7905" />
-                                            <stop offset="1" stop-color="#FFDD55" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
-                        </div>
                     </div>
 
 
@@ -209,7 +104,7 @@
                 </div>
             </div>
         </div>
-        <div class="ch-img"> <img src="include/images/ineer-hero.jpg" alt=""> </div>
+        <div class="ch-img"> <img src="{{ asset($value->value_3) }}" alt=""> </div>
     </div>
     <!--============================== Content-Container End ==============================-->
 

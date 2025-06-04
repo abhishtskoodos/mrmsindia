@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
-use App\Models\{Event, Category, Celebrity, Guest, Modal,Media};
+use App\Models\{Event, Category, Celebrity, Guest, Modal, Media, Faq,Value};
 use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
@@ -540,10 +540,11 @@ class PostController extends Controller
         return back()->with('success', 'Pageant Subtitle F Deleted');
     }
 
-    public function contact(){
+    public function contact()
+    {
         $data['contacts'] = DB::table('contacts')->paginate(20);
 
-        return view('admin.contact.contact',$data);
+        return view('admin.contact.contact', $data);
     }
 
     public function media()
@@ -613,5 +614,95 @@ class PostController extends Controller
     {
         Media::findOrFail($request->id)->delete();
         return back()->with('success', 'media deleted');
+    }
+
+    public function faqs_index()
+    {
+        $faqs = Faq::all();
+        return view('admin.faqs.index', compact('faqs'));
+    }
+
+    public function faqs_create()
+    {
+        return view('admin.faqs.create');
+    }
+
+    public function faqs_store(Request $request)
+    {
+        $request->validate([
+            'question' => 'required|string',
+            'answer' => 'required|string',
+        ]);
+
+        $faq = new Faq();
+        $faq->question = $request->question;
+        $faq->answer = $request->answer;
+        $faq->save();
+
+        return redirect()->route('faq.index')->with('success', 'FAQ created successfully!');
+    }
+
+    public function faqs_edit(Request $request)
+    {
+        $faq = Faq::findOrFail($request->id);
+
+        return view('admin.faqs.edit', compact('faq'));
+    }
+    public function faqs_update(Request $request)
+    {
+        $request->validate([
+            'id' => 'required',
+            'question' => 'required|string',
+            'answer' => 'required|string',
+        ]);
+
+        $faq = Faq::find($request->id);
+        $faq->question = $request->question;
+        $faq->answer = $request->answer;
+        $faq->save();
+
+       return redirect()->route('faq.index')->with('success', 'FAQ updated successfully!') ;
+    }
+
+    public function fasq_delete(Request $request)
+    {
+        Media::findOrFail($request->id)->delete();
+        return back()->with('success', 'media deleted');
+    }
+
+    public function updateSingleValue(Request $request)
+    {
+        $value = Value::findOrFail(1);
+        $fields = [];
+    
+        for ($i = 1; $i <= 20; $i++) {
+            $fieldName = "value_$i";
+            
+            if ($i === 3 && $request->hasFile($fieldName)) {
+                $file = $request->file($fieldName);
+                $fileName = time() . '_' . $file->getClientOriginalName();
+                
+                $file->move(public_path('values'), $fileName);
+                $fields[$fieldName] = 'values/' . $fileName;
+            }
+            
+            elseif ($request->has($fieldName)) {
+                $fields[$fieldName] = $request->$fieldName;
+            }
+        }
+    
+        if (!empty($fields)) {
+            $value->update($fields);
+            return redirect()->route('values.index')->with('success', 'Values updated successfully!');
+        } else {
+            return redirect()->route('values.index')->with('info', 'No changes made.');
+        }
+    }
+    
+
+    public function showIndexForm()
+    {
+        $value = \App\Models\Value::findOrFail(1); 
+        return view('admin.values.index', compact('value'));
     }
 }
