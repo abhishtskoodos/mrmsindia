@@ -29,6 +29,16 @@ Route::middleware('guest')->group(function () {
     Route::post('reset-password', [NewPasswordController::class, 'store'])->name('password.update');
 });
 
+
+function registerCrudRoutes($prefix)
+{
+    Route::get("/admin/{$name}", [PostController::class, "{$name}"])->name("{$name}.index");
+    Route::post("/admin/{$name}/store", [PostController::class, "{$name}_store"])->name("{$name}.store");
+    Route::get("/admin/{$name}/edit", [PostController::class, "{$name}_edit"])->name("{$name}.edit");
+    Route::post("/admin/{$name}/update", [PostController::class, "{$name}_update"])->name("{$name}.update");
+    Route::post("/admin/{$name}/delete", [PostController::class, "{$name}_delete"])->name("{$name}.delete");
+}
+
 Route::middleware('auth')->group(function () {
     Route::get('/adminevent', [PostController::class, 'event'])->name('event.index');
     Route::post('/admineventstore', [PostController::class, 'eventstore'])->name('event.store');
@@ -87,6 +97,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/faq/update', [PostController::class, 'faqs_update'])->name('faq.update');
     Route::put('/admin/faq/delete', [PostController::class, 'faqs_delete'])->name('faq.delete');
 
+    Route::get('/adminmediacoverage', [PostController::class, 'mediacoverage'])->name('mediacoverage.index');
+    Route::post('/adminmediacoveragestore', [PostController::class, 'mediacoveragestore'])->name('mediacoverage.store');
+    Route::get('/adminmediacoverageedit', [PostController::class, 'mediacoverageedit'])->name('mediacoverage.edit');
+    Route::post('/adminmediacoverageupdate', [PostController::class, 'mediacoverageupdate'])->name('mediacoverage.update');
+    Route::post('/adminmediacoveragedelete', [PostController::class, 'mediacoveragedelete'])->name('mediacoverage.delete');
 
     Route::get('/admin/values', [PostController::class, 'showIndexForm'])->name('values.index');
     Route::post('/admin/values/update', [PostController::class, 'updateSingleValue'])->name('values.update');

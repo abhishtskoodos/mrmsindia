@@ -6,7 +6,7 @@
                   
                   <div class="footer-inner">
                      <div class="fi-left">
-                        <div class="fil-logo"> <img src="include/images/logo.png" alt=""> </div>
+                        <div class="fil-logo"> <img src="{{ asset('include/images/logo.png') }}" alt=""> </div>
                         <p> ADDRESS & CONTACT <br/> Lorem Ipsum has been the <br/> industry's standard dummy text <br/> ever since the 1500 </p>
                         <div class="fil-search">
                             <input type="text" placeholder="Get Newsletters">

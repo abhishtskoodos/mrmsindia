@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\{Category, Event, Celebrity, Guest, Modal,PageantRegistration,Media,Faq,Value};
+use App\Models\{Category, Event, Celebrity, Guest, Modal,PageantRegistration,Media,Faq,Value,MediaCoverage};
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
@@ -58,13 +58,16 @@ class FrontController extends Controller
 
     public function show()
     {
-        return view('frontend.show');
+        $data['value'] = Value::first();
+
+        return view('frontend.show',$data);
     }
 
     public function sponsers()
     {
         $data['medias'] = Media::get();
         $data['value'] = Value::first();
+        $data['mediacoverages'] = Mediacoverage::get();
         return view('frontend.sponsers', $data);
     }
 

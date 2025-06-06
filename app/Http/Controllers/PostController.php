@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
-use App\Models\{Event, Category, Celebrity, Guest, Modal, Media, Faq,Value};
+use App\Models\{Event, Category, Celebrity, Guest, Modal, Media, Faq,Value,Mediacoverage};
 use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
@@ -678,7 +678,7 @@ class PostController extends Controller
         for ($i = 1; $i <= 20; $i++) {
             $fieldName = "value_$i";
             
-            if ($i === 3 && $request->hasFile($fieldName)) {
+            if (($i === 3 || $i === 4) && $request->hasFile($fieldName)) {
                 $file = $request->file($fieldName);
                 $fileName = time() . '_' . $file->getClientOriginalName();
                 
@@ -704,5 +704,78 @@ class PostController extends Controller
     {
         $value = \App\Models\Value::findOrFail(1); 
         return view('admin.values.index', compact('value'));
+    }
+
+    public function mediacoverage()
+    {
+        $mediacoverages = Mediacoverage::latest()->get();
+        return view('admin.mediacoverage.index', compact('mediacoverages'));
+    }
+
+    public function mediacoveragestore(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required',
+            'alt' => 'nullable',
+            'image' => 'nullable|image',
+            'title' => 'nullable',
+            'description' => 'nullable',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+
+            // Make sure public/mediacoverages directory exists
+            $image->move(public_path('mediacoverage'), $imageName);
+
+            $data['image'] = 'mediacoverage/' . $imageName;
+        }
+
+        Mediacoverage::create($data);
+        return back()->with('success', 'mediacoverage created');
+    }
+
+    public function mediacoverageedit(Request $request)
+    {
+        $mediacoverage = Mediacoverage::findOrFail($request->id);
+        return view('admin.mediacoverage.edit', compact('mediacoverage'));
+    }
+
+    public function mediacoverageupdate(Request $request)
+    {
+        $mediacoverage = Mediacoverage::findOrFail($request->id);
+
+        $data = $request->validate([
+            'name' => 'required',
+            'alt' => 'nullable',
+            'image' => 'nullable|image',
+            'title' => 'nullable',
+            'description' => 'nullable',
+        ]);
+
+        if ($request->hasFile('image')) {
+            if ($mediacoverage->image && file_exists(public_path($mediacoverage->image))) {
+                unlink(public_path($mediacoverage->image));
+            }
+            if (!file_exists(public_path('mediacoverage'))) {
+                mkdir(public_path('mediacoverage'), 0755, true);
+            }
+
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $image->move(public_path('mediacoverage'), $imageName);
+
+            $data['image'] = 'mediacoverage/' . $imageName;
+        }
+
+        $mediacoverage->update($data);
+        return back()->with('success', 'mediacoverage updated');
+    }
+
+    public function mediacoveragedelete(Request $request)
+    {
+        Mediacoverage::findOrFail($request->id)->delete();
+        return back()->with('success', 'mediacoverage deleted');
     }
 }

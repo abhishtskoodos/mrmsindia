@@ -48,6 +48,10 @@
                 <a href="{{ route('faq.index') }}" class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition">
                     <h2 class="text-lg font-semibold text-gray-800">Faqs</h2>
                 </a>
+
+                <a href="{{ route('mediacoverage.index') }}" class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition">
+                    <h2 class="text-lg font-semibold text-gray-800">Media Coverage</h2>
+                </a>
     
                 <!-- Add more cards here if needed -->
                 

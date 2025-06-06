@@ -116,6 +116,36 @@
                     <h4 class="heading mb-5"> Media Coverage </h4>
 
                     <ul class="person-list">
+                        @if (!empty($medias) && count($medias) > 0)
+                        @foreach ($mediacoverages as $mediacoverage)
+                        <li class="person-item">
+                            <div class="pi-box">
+                                <div class="pi-img"> <img src="{{ $mediacoverage->image }}" alt=""> </div>
+                                <div class="pi-text">
+                                    <h4> {{ $mediacoverage->name }} </h4>
+                                    <p> {{ $mediacoverage->title }} </p>
+                                    <div class="pi-button"> {{ $mediacoverage->name }}
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="75" height="78"
+                                            viewBox="0 0 75 78" fill="none">
+                                            <rect x="38.5156" width="54.8316" height="54.8316" rx="27.4158"
+                                                transform="rotate(43.8944 38.5156 0)" fill="black"
+                                                fill-opacity="0.7" />
+                                            <path
+                                                d="M26.3389 52.199C18.9106 45.0519 18.6831 33.2675 25.8302 25.8391C32.9773 18.4107 44.7618 18.1833 52.1902 25.3304C59.6186 32.4775 59.846 44.262 52.6989 51.6903C45.5518 59.1187 33.7673 59.3461 26.3389 52.199ZM50.6695 26.9109C44.1104 20.6002 33.7215 20.8007 27.4107 27.3598C21.1 33.9189 21.3005 44.3078 27.8596 50.6185C34.4187 56.9293 44.8076 56.7288 51.1184 50.1697C57.4291 43.6106 57.2286 33.2217 50.6695 26.9109Z"
+                                                fill="black" fill-opacity="0.7" />
+                                            <path
+                                                d="M44.531 46.4187L44.2826 33.5489L31.4128 33.7972L31.3709 31.6264L46.4116 31.3361L46.7018 46.3768L44.531 46.4187Z"
+                                                fill="white" />
+                                            <path
+                                                d="M44.5566 31.6821L46.1371 33.2028L33.2115 46.6371L31.631 45.1164L44.5566 31.6821Z"
+                                                fill="white" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        @endforeach
+                        @else
                         <li class="person-item">
                             <div class="pi-box">
                                 <div class="pi-img"> <img src="include/images/sl1.jpg" alt=""> </div>
@@ -194,6 +224,7 @@
                                 </div>
                             </div>
                         </li>
+                        @endif
                     </ul>
 
                 </div>

@@ -15,7 +15,7 @@
 
     <!--============================== Content Start ==============================-->
     <div class="content-container gannd-finnal p-0">
-         <img src="include/images/ineer-hero.jpg" alt="">
+         <img src="{{ $value->value_4 }}" alt="">
          <div class="container">
             <div class="row">
                 <div class="col-lg-12">

@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-xl">
         <div class="container">
             <div class="nav-inside d-flex align-items-center justify-content-between">
-                <a class="navbar-brand" href="#"><img src="include/images/logo.png" alt="logo" /></a>
+                <a class="navbar-brand" href="#"><img src="{{ asset('include/images/logo.png')}}" alt="logo" /></a>
                 <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false"
                     aria-label="Toggle navigation">
