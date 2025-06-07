@@ -492,25 +492,31 @@
         </div>
     </div>
 
-    <!--============================== Content-Container Start ==============================-->
-    <div class="content-container gg" style="background-color:#FFFADA; position: relative;">
+    <!-- ============================== Gender Dropdown ============================== -->
+    <div class="container mb-4 mt-4">
+        <label for="genderFilter"><strong>Select Gender:</strong></label>
+        <select id="genderFilter" class="form-control" style="width: 200px;">
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+        </select>
+    </div>
+
+    <!-- ============================== Female Section ============================== -->
+    <div id="femaleSection" class="content-container gg" style="background-color:#FFFADA; position: relative;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-
                     <div class="right-logo"> <img src="include/images/right-logo.png" alt=""> </div>
-
-                    <h5 class="heading"> Pageant Subtitles </h5>
-                    <p> Female </p>
+                    <h5 class="heading">Pageant Subtitles</h5>
+                    <p>Female</p>
 
                     <div class="award-list">
-
                         @if (!empty($pageantsubtitlefs) && count($pageantsubtitlefs) > 0)
                             @foreach ($pageantsubtitlefs as $pageantsubtitlef)
                                 <div class="award-item">
                                     <div class="ai-box">
-                                        <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                        <div class="ai-text"> Miss catwalk </div>
+                                        <div class="ai-img"><img src="include/images/am.png" alt=""></div>
+                                        <div class="ai-text">{{ $pageantsubtitlef->title ?? 'Miss Catwalk' }}</div>
                                     </div>
                                 </div>
                             @endforeach
@@ -524,78 +530,87 @@
                             <div class="award-item">
                                 <div class="ai-box">
                                     <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                    <div class="ai-text"> Miss catwalk </div>
+                                    <div class="ai-text"> Miss Beautiful body </div>
                                 </div>
                             </div>
                             <div class="award-item">
                                 <div class="ai-box">
                                     <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                    <div class="ai-text"> Miss catwalk </div>
+                                    <div class="ai-text"> Miss Talented </div>
                                 </div>
                             </div>
                             <div class="award-item">
                                 <div class="ai-box">
                                     <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                    <div class="ai-text"> Miss catwalk </div>
+                                    <div class="ai-text"> Miss Photogenic</div>
                                 </div>
                             </div>
                             <div class="award-item">
                                 <div class="ai-box">
                                     <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                    <div class="ai-text"> Miss catwalk </div>
+                                    <div class="ai-text"> Miss Beautiful hair </div>
                                 </div>
                             </div>
                             <div class="award-item">
                                 <div class="ai-box">
                                     <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                    <div class="ai-text"> Miss catwalk </div>
+                                    <div class="ai-text"> Miss Best Personality  </div>
                                 </div>
                             </div>
                             <div class="award-item">
                                 <div class="ai-box">
                                     <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                    <div class="ai-text"> Miss catwalk </div>
+                                    <div class="ai-text"> Miss Gorgeous </div>
                                 </div>
                             </div>
                             <div class="award-item">
                                 <div class="ai-box">
                                     <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                    <div class="ai-text"> Miss catwalk </div>
+                                    <div class="ai-text">Miss Best confidence  </div>
                                 </div>
                             </div>
                             <div class="award-item">
                                 <div class="ai-box">
                                     <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                    <div class="ai-text"> Miss catwalk </div>
+                                    <div class="ai-text">Miss Beautiful skin </div>
+                                </div>
+                            </div>
+                            <div class="award-item">
+                                <div class="ai-box">
+                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                    <div class="ai-text">Miss Beautiful eyes</div>
+                                </div>
+                            </div>
+                            <div class="award-item">
+                                <div class="ai-box">
+                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                    <div class="ai-text">Miss Beautiful smile</div>
                                 </div>
                             </div>
                         @endif
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-    <!--============================== Content-Container End ==============================-->
 
-    <!--============================== Content-Container Start ==============================-->
-    <div class="content-container gg type" style="background-color:#FFFADA; position: relative;">
+    <!-- ============================== Male Section ============================== -->
+    <div id="maleSection" class="content-container gg type"
+        style="background-color:#FFFADA; position: relative; display: none;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-
                     <div class="right-logo"> <img src="include/images/right-logo.png" alt=""> </div>
-
-                    <h5 class="heading"> Pageant Subtitles </h5>
-                    <p> Male </p>
+                    <h5 class="heading">Pageant Subtitles</h5>
+                    <p>Male</p>
 
                     <div class="award-list">
-                        @if (!empty($pageantsubtitlefs) && count($pageantsubtitlefs) > 0)
-                            @foreach ($pageantsubtitlefs as $pageantsubtitlef)
+                        @if (!empty($pageantsubtitlems) && count($pageantsubtitlems) > 0)
+                            @foreach ($pageantsubtitlems as $pageantsubtitlem)
                                 <div class="award-item">
                                     <div class="ai-box">
-                                        <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                        <div class="ai-text"> Miss catwalk </div>
+                                        <div class="ai-img"><img src="include/images/am.png" alt=""></div>
+                                        <div class="ai-text">{{ $pageantsubtitlem->title ?? 'Mr. Catwalk' }}</div>
                                     </div>
                                 </div>
                             @endforeach
@@ -603,76 +618,82 @@
                             <div class="award-item">
                                 <div class="ai-box">
                                     <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                    <div class="ai-text"> Miss catwalk </div>
+                                    <div class="ai-text"> Mr. Strut walk</div>
                                 </div>
                             </div>
                             <div class="award-item">
                                 <div class="ai-box">
                                     <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                    <div class="ai-text"> Miss catwalk </div>
+                                    <div class="ai-text"> Mr. Physique</div>
                                 </div>
                             </div>
                             <div class="award-item">
                                 <div class="ai-box">
                                     <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                    <div class="ai-text"> Miss catwalk </div>
+                                    <div class="ai-text">Mr. Talented </div>
                                 </div>
                             </div>
                             <div class="award-item">
                                 <div class="ai-box">
                                     <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                    <div class="ai-text"> Miss catwalk </div>
+                                    <div class="ai-text"> Mr. Photogenic </div>
                                 </div>
                             </div>
                             <div class="award-item">
                                 <div class="ai-box">
                                     <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                    <div class="ai-text"> Miss catwalk </div>
+                                    <div class="ai-text"> Mr. Best hair</div>
                                 </div>
                             </div>
                             <div class="award-item">
                                 <div class="ai-box">
                                     <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                    <div class="ai-text"> Miss catwalk </div>
+                                    <div class="ai-text">Mr. Best Personality </div>
                                 </div>
                             </div>
                             <div class="award-item">
                                 <div class="ai-box">
                                     <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                    <div class="ai-text"> Miss catwalk </div>
+                                    <div class="ai-text"> Mr. Best smart </div>
                                 </div>
                             </div>
                             <div class="award-item">
                                 <div class="ai-box">
                                     <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                    <div class="ai-text"> Miss catwalk </div>
+                                    <div class="ai-text"> Mr. Best Confidence </div>
                                 </div>
                             </div>
                             <div class="award-item">
                                 <div class="ai-box">
                                     <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                    <div class="ai-text"> Miss catwalk </div>
-                                </div>
-                            </div>
-                            <div class="award-item">
-                                <div class="ai-box">
-                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                    <div class="ai-text"> Miss catwalk </div>
-                                </div>
-                            </div>
-                            <div class="award-item">
-                                <div class="ai-box">
-                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                    <div class="ai-text"> Miss catwalk </div>
+                                    <div class="ai-text"> Mr. Handsome</div>
                                 </div>
                             </div>
                         @endif
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- ============================== Toggle Script ============================== -->
+    <script>
+        document.getElementById('genderFilter').addEventListener('change', function() {
+            const selected = this.value;
+
+            const femaleSection = document.getElementById('femaleSection');
+            const maleSection = document.getElementById('maleSection');
+
+            if (selected === 'male') {
+                femaleSection.style.display = 'none';
+                maleSection.style.display = 'block';
+            } else {
+                femaleSection.style.display = 'block';
+                maleSection.style.display = 'none';
+            }
+        });
+    </script>
+
     <!--============================== Content-Container End ==============================-->
 
     <!--============================== Content-Container Start ==============================-->
