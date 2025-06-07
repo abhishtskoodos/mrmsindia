@@ -4,85 +4,71 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
-use App\Models\{Event, Category, Celebrity, Guest, Modal, Media, Faq,Value,Mediacoverage};
+use App\Models\{Event, Category, Celebrity, Guest, Modal, Media, Faq, Value, Mediacoverage};
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    function insertFromRequest(Request $request, string $table, array $fileFields = [], string $uploadFolder = '')
     {
-        //
+        $data = $request->except($fileFields); // sab normal fields le lo
+
+        foreach ($fileFields as $field) {
+            if ($request->hasFile($field)) {
+                $file = $request->file($field);
+                $filename = time() . '_' . Str::slug($file->getClientOriginalName(), '_');
+                $file->move(public_path($uploadFolder), $filename);
+                $data[$field] = $uploadFolder . '/' . $filename;
+            }
+        }
+
+        DB::table($table)->insert($data);
+        return true;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    function update(Request $request, string $table, $id, array $fileFields = [], string $uploadFolder = '', string $idColumn = 'id')
     {
-        //
-    }
+        try {
+            $existing = DB::table($table)->where($idColumn, $id)->first();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Post $post)
-    {
-        //
-    }
+            if (!$existing) {
+                return false;
+            }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Post $post)
-    {
-        //
-    }
+            $data = [];
+            $allFields = $request->except($fileFields);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Post $post)
-    {
-        //
-    }
+            foreach ($allFields as $key => $value) {
+                if (property_exists($existing, $key) && $existing->$key != $value) {
+                    $data[$key] = $value;
+                }
+            }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Post $post)
-    {
-        //
+            foreach ($fileFields as $field) {
+                if ($request->hasFile($field)) {
+                    $file = $request->file($field);
+                    $filename = time() . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME), '_') . '.' . $file->getClientOriginalExtension();
+                    $file->move(public_path($uploadFolder), $filename);
+                    $data[$field] = $uploadFolder . '/' . $filename;
+                }
+            }
+
+            if (!empty($data)) {
+                DB::table($table)->where($idColumn, $id)->update($data);
+            }
+
+            return true;
+        } catch (\Exception $e) {
+            Log::error('Update failed: ' . $e->getMessage());
+            return false;
+        }
     }
 
     public function event()
@@ -661,7 +647,7 @@ class PostController extends Controller
         $faq->answer = $request->answer;
         $faq->save();
 
-       return redirect()->route('faq.index')->with('success', 'FAQ updated successfully!') ;
+        return redirect()->route('faq.index')->with('success', 'FAQ updated successfully!');
     }
 
     public function fasq_delete(Request $request)
@@ -674,23 +660,21 @@ class PostController extends Controller
     {
         $value = Value::findOrFail(1);
         $fields = [];
-    
+
         for ($i = 1; $i <= 20; $i++) {
             $fieldName = "value_$i";
-            
+
             if (($i === 3 || $i === 4) && $request->hasFile($fieldName)) {
                 $file = $request->file($fieldName);
                 $fileName = time() . '_' . $file->getClientOriginalName();
-                
+
                 $file->move(public_path('values'), $fileName);
                 $fields[$fieldName] = 'values/' . $fileName;
-            }
-            
-            elseif ($request->has($fieldName)) {
+            } elseif ($request->has($fieldName)) {
                 $fields[$fieldName] = $request->$fieldName;
             }
         }
-    
+
         if (!empty($fields)) {
             $value->update($fields);
             return redirect()->route('values.index')->with('success', 'Values updated successfully!');
@@ -698,11 +682,11 @@ class PostController extends Controller
             return redirect()->route('values.index')->with('info', 'No changes made.');
         }
     }
-    
 
     public function showIndexForm()
     {
-        $value = \App\Models\Value::findOrFail(1); 
+        $value = Value::findOrFail(1);
+        
         return view('admin.values.index', compact('value'));
     }
 

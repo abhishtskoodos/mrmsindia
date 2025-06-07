@@ -463,7 +463,7 @@
                                 <div class="ad-img"> <img src="include/images/second.png" alt=""> </div>
                                 <div class="ad-text" style="border-radius: 100px 2px 2px 2px;">
                                     <h3> 1st Runner Up </h3>
-                                    <p> Mr. & Miss Glam India </p>
+                                    <p> {{ $value->value_6 }} </p>
                                 </div>
                             </div>
                         </li>
@@ -472,7 +472,7 @@
                                 <div class="ad-img"> <img src="include/images/first.png" alt=""> </div>
                                 <div class="ad-text" style="border-radius: 2px; height:150px;">
                                     <h3> Winner </h3>
-                                    <p> Mr. & Miss Glam India </p>
+                                    <p> {{ $value->value_5 }} </p>
                                 </div>
                             </div>
                         </li>
@@ -481,7 +481,7 @@
                                 <div class="ad-img"> <img src="include/images/thired.png" alt=""> </div>
                                 <div class="ad-text" style="border-radius: 2px 100px 2px 2px;">
                                     <h3> 2nd Runner Up </h3>
-                                    <p> Mr. & Miss Glam India </p>
+                                    <p> {{ $value->value_7 }} </p>
                                 </div>
                             </div>
                         </li>
@@ -504,72 +504,72 @@
                     <p> Female </p>
 
                     <div class="award-list">
-                        <div class="award-item">
-                            <div class="ai-box">
-                                <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                <div class="ai-text"> Miss catwalk </div>
+
+                        @if (!empty($pageantsubtitlefs) && count($pageantsubtitlefs) > 0)
+                            @foreach ($pageantsubtitlefs as $pageantsubtitlef)
+                                <div class="award-item">
+                                    <div class="ai-box">
+                                        <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                        <div class="ai-text"> Miss catwalk </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="award-item">
+                                <div class="ai-box">
+                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                    <div class="ai-text"> Miss catwalk </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="award-item">
-                            <div class="ai-box">
-                                <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                <div class="ai-text"> Miss catwalk </div>
+                            <div class="award-item">
+                                <div class="ai-box">
+                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                    <div class="ai-text"> Miss catwalk </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="award-item">
-                            <div class="ai-box">
-                                <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                <div class="ai-text"> Miss catwalk </div>
+                            <div class="award-item">
+                                <div class="ai-box">
+                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                    <div class="ai-text"> Miss catwalk </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="award-item">
-                            <div class="ai-box">
-                                <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                <div class="ai-text"> Miss catwalk </div>
+                            <div class="award-item">
+                                <div class="ai-box">
+                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                    <div class="ai-text"> Miss catwalk </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="award-item">
-                            <div class="ai-box">
-                                <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                <div class="ai-text"> Miss catwalk </div>
+                            <div class="award-item">
+                                <div class="ai-box">
+                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                    <div class="ai-text"> Miss catwalk </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="award-item">
-                            <div class="ai-box">
-                                <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                <div class="ai-text"> Miss catwalk </div>
+                            <div class="award-item">
+                                <div class="ai-box">
+                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                    <div class="ai-text"> Miss catwalk </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="award-item">
-                            <div class="ai-box">
-                                <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                <div class="ai-text"> Miss catwalk </div>
+                            <div class="award-item">
+                                <div class="ai-box">
+                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                    <div class="ai-text"> Miss catwalk </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="award-item">
-                            <div class="ai-box">
-                                <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                <div class="ai-text"> Miss catwalk </div>
+                            <div class="award-item">
+                                <div class="ai-box">
+                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                    <div class="ai-text"> Miss catwalk </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="award-item">
-                            <div class="ai-box">
-                                <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                <div class="ai-text"> Miss catwalk </div>
+                            <div class="award-item">
+                                <div class="ai-box">
+                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                    <div class="ai-text"> Miss catwalk </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="award-item">
-                            <div class="ai-box">
-                                <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                <div class="ai-text"> Miss catwalk </div>
-                            </div>
-                        </div>
-                        <div class="award-item">
-                            <div class="ai-box">
-                                <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                <div class="ai-text"> Miss catwalk </div>
-                            </div>
-                        </div>
+                        @endif
                     </div>
 
                 </div>
@@ -590,72 +590,83 @@
                     <p> Male </p>
 
                     <div class="award-list">
-                        <div class="award-item">
-                            <div class="ai-box">
-                                <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                <div class="ai-text"> Miss catwalk </div>
+                        @if (!empty($pageantsubtitlefs) && count($pageantsubtitlefs) > 0)
+                            @foreach ($pageantsubtitlefs as $pageantsubtitlef)
+                                <div class="award-item">
+                                    <div class="ai-box">
+                                        <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                        <div class="ai-text"> Miss catwalk </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="award-item">
+                                <div class="ai-box">
+                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                    <div class="ai-text"> Miss catwalk </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="award-item">
-                            <div class="ai-box">
-                                <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                <div class="ai-text"> Miss catwalk </div>
+                            <div class="award-item">
+                                <div class="ai-box">
+                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                    <div class="ai-text"> Miss catwalk </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="award-item">
-                            <div class="ai-box">
-                                <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                <div class="ai-text"> Miss catwalk </div>
+                            <div class="award-item">
+                                <div class="ai-box">
+                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                    <div class="ai-text"> Miss catwalk </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="award-item">
-                            <div class="ai-box">
-                                <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                <div class="ai-text"> Miss catwalk </div>
+                            <div class="award-item">
+                                <div class="ai-box">
+                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                    <div class="ai-text"> Miss catwalk </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="award-item">
-                            <div class="ai-box">
-                                <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                <div class="ai-text"> Miss catwalk </div>
+                            <div class="award-item">
+                                <div class="ai-box">
+                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                    <div class="ai-text"> Miss catwalk </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="award-item">
-                            <div class="ai-box">
-                                <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                <div class="ai-text"> Miss catwalk </div>
+                            <div class="award-item">
+                                <div class="ai-box">
+                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                    <div class="ai-text"> Miss catwalk </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="award-item">
-                            <div class="ai-box">
-                                <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                <div class="ai-text"> Miss catwalk </div>
+                            <div class="award-item">
+                                <div class="ai-box">
+                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                    <div class="ai-text"> Miss catwalk </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="award-item">
-                            <div class="ai-box">
-                                <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                <div class="ai-text"> Miss catwalk </div>
+                            <div class="award-item">
+                                <div class="ai-box">
+                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                    <div class="ai-text"> Miss catwalk </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="award-item">
-                            <div class="ai-box">
-                                <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                <div class="ai-text"> Miss catwalk </div>
+                            <div class="award-item">
+                                <div class="ai-box">
+                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                    <div class="ai-text"> Miss catwalk </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="award-item">
-                            <div class="ai-box">
-                                <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                <div class="ai-text"> Miss catwalk </div>
+                            <div class="award-item">
+                                <div class="ai-box">
+                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                    <div class="ai-text"> Miss catwalk </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="award-item">
-                            <div class="ai-box">
-                                <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
-                                <div class="ai-text"> Miss catwalk </div>
+                            <div class="award-item">
+                                <div class="ai-box">
+                                    <div class="ai-img"> <img src="include/images/am.png" alt=""> </div>
+                                    <div class="ai-text"> Miss catwalk </div>
+                                </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
 
                 </div>
@@ -1108,89 +1119,90 @@
                     <div class="swiper mySwiper3">
                         <div class="swiper-wrapper card-list" style="margin-bottom:90px;">
                             @if (!empty($modals) && count($modals) > 0)
-                            @foreach ($modals as $modal)
-                            <div class="swiper-slide card-item">
-                                <div class="mib-box">
-                                    <div class="mb-img"><img src="{{ $modal->image }}" alt="{{ $modal->alt }}"></div>
-                                    <div class="mb-text">{{ $modal->name }}</div>
-                                    <div class="mb-hover">
-                                        <p> Height - 174 cm </p>
-                                        <p> Weight - 56 kg </p>
-                                        <p> Bust - 88 cm </p>
-                                        <p> Weist - 64 cm </p>
-                                        <p> Hips - 91 cm </p>
-                                        <p> Body type - 91 cm </p>
-                                        <p> Hair colour - Black </p>
-                                        <p> Eye colour - Brown </p>
+                                @foreach ($modals as $modal)
+                                    <div class="swiper-slide card-item">
+                                        <div class="mib-box">
+                                            <div class="mb-img"><img src="{{ $modal->image }}"
+                                                    alt="{{ $modal->alt }}"></div>
+                                            <div class="mb-text">{{ $modal->name }}</div>
+                                            <div class="mb-hover">
+                                                <p> Height - 174 cm </p>
+                                                <p> Weight - 56 kg </p>
+                                                <p> Bust - 88 cm </p>
+                                                <p> Weist - 64 cm </p>
+                                                <p> Hips - 91 cm </p>
+                                                <p> Body type - 91 cm </p>
+                                                <p> Hair colour - Black </p>
+                                                <p> Eye colour - Brown </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            @endforeach
+                                @endforeach
                             @else
-                            <div class="swiper-slide card-item">
-                                <div class="mib-box">
-                                    <div class="mb-img"><img src="include/images/sl1.jpg" alt=""></div>
-                                    <div class="mb-text">NATELIE JOHN</div>
-                                    <div class="mb-hover">
-                                        <p> Height - 174 cm </p>
-                                        <p> Weight - 56 kg </p>
-                                        <p> Bust - 88 cm </p>
-                                        <p> Weist - 64 cm </p>
-                                        <p> Hips - 91 cm </p>
-                                        <p> Body type - 91 cm </p>
-                                        <p> Hair colour - Black </p>
-                                        <p> Eye colour - Brown </p>
+                                <div class="swiper-slide card-item">
+                                    <div class="mib-box">
+                                        <div class="mb-img"><img src="include/images/sl1.jpg" alt=""></div>
+                                        <div class="mb-text">NATELIE JOHN</div>
+                                        <div class="mb-hover">
+                                            <p> Height - 174 cm </p>
+                                            <p> Weight - 56 kg </p>
+                                            <p> Bust - 88 cm </p>
+                                            <p> Weist - 64 cm </p>
+                                            <p> Hips - 91 cm </p>
+                                            <p> Body type - 91 cm </p>
+                                            <p> Hair colour - Black </p>
+                                            <p> Eye colour - Brown </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="swiper-slide card-item">
-                                <div class="mib-box">
-                                    <div class="mb-img"><img src="include/images/sl2.jpg" alt=""></div>
-                                    <div class="mb-text">NATELIE JOHN</div>
-                                    <div class="mb-hover">
-                                        <p> Height - 174 cm </p>
-                                        <p> Weight - 56 kg </p>
-                                        <p> Bust - 88 cm </p>
-                                        <p> Weist - 64 cm </p>
-                                        <p> Hips - 91 cm </p>
-                                        <p> Body type - 91 cm </p>
-                                        <p> Hair colour - Black </p>
-                                        <p> Eye colour - Brown </p>
+                                <div class="swiper-slide card-item">
+                                    <div class="mib-box">
+                                        <div class="mb-img"><img src="include/images/sl2.jpg" alt=""></div>
+                                        <div class="mb-text">NATELIE JOHN</div>
+                                        <div class="mb-hover">
+                                            <p> Height - 174 cm </p>
+                                            <p> Weight - 56 kg </p>
+                                            <p> Bust - 88 cm </p>
+                                            <p> Weist - 64 cm </p>
+                                            <p> Hips - 91 cm </p>
+                                            <p> Body type - 91 cm </p>
+                                            <p> Hair colour - Black </p>
+                                            <p> Eye colour - Brown </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="swiper-slide card-item">
-                                <div class="mib-box">
-                                    <div class="mb-img"><img src="include/images/sl3.jpg" alt=""></div>
-                                    <div class="mb-text">NATELIE JOHN</div>
-                                    <div class="mb-hover">
-                                        <p> Height - 174 cm </p>
-                                        <p> Weight - 56 kg </p>
-                                        <p> Bust - 88 cm </p>
-                                        <p> Weist - 64 cm </p>
-                                        <p> Hips - 91 cm </p>
-                                        <p> Body type - 91 cm </p>
-                                        <p> Hair colour - Black </p>
-                                        <p> Eye colour - Brown </p>
+                                <div class="swiper-slide card-item">
+                                    <div class="mib-box">
+                                        <div class="mb-img"><img src="include/images/sl3.jpg" alt=""></div>
+                                        <div class="mb-text">NATELIE JOHN</div>
+                                        <div class="mb-hover">
+                                            <p> Height - 174 cm </p>
+                                            <p> Weight - 56 kg </p>
+                                            <p> Bust - 88 cm </p>
+                                            <p> Weist - 64 cm </p>
+                                            <p> Hips - 91 cm </p>
+                                            <p> Body type - 91 cm </p>
+                                            <p> Hair colour - Black </p>
+                                            <p> Eye colour - Brown </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="swiper-slide card-item">
-                                <div class="mib-box">
-                                    <div class="mb-img"><img src="include/images/sl3.jpg" alt=""></div>
-                                    <div class="mb-text">NATELIE JOHN</div>
-                                    <div class="mb-hover">
-                                        <p> Height - 174 cm </p>
-                                        <p> Weight - 56 kg </p>
-                                        <p> Bust - 88 cm </p>
-                                        <p> Weist - 64 cm </p>
-                                        <p> Hips - 91 cm </p>
-                                        <p> Body type - 91 cm </p>
-                                        <p> Hair colour - Black </p>
-                                        <p> Eye colour - Brown </p>
+                                <div class="swiper-slide card-item">
+                                    <div class="mib-box">
+                                        <div class="mb-img"><img src="include/images/sl3.jpg" alt=""></div>
+                                        <div class="mb-text">NATELIE JOHN</div>
+                                        <div class="mb-hover">
+                                            <p> Height - 174 cm </p>
+                                            <p> Weight - 56 kg </p>
+                                            <p> Bust - 88 cm </p>
+                                            <p> Weist - 64 cm </p>
+                                            <p> Hips - 91 cm </p>
+                                            <p> Body type - 91 cm </p>
+                                            <p> Hair colour - Black </p>
+                                            <p> Eye colour - Brown </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             @endif
                         </div>
 

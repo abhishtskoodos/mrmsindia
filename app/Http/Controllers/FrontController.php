@@ -15,6 +15,9 @@ class FrontController extends Controller
         $data['celebritys'] = Celebrity::get();
         $data['guests'] = Guest::get();
         $data['modals'] = Modal::get();
+        $data['value'] = Value::first();
+        $data['pageantsubtitlems'] = DB::table('pageantsubtitlems')->latest()->get();
+        $data['pageantsubtitlefs'] = DB::table('pageantsubtitlefs')->latest()->get();
 
         return view('frontend.home', $data);
     }

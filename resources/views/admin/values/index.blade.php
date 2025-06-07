@@ -15,9 +15,9 @@
                     2 => 'Contact',
                     3 => 'Branding and Marketing',
                     4 => 'Show Hero Image',
-                    // 5 => 'Gender',
-                    // 6 => 'City',
-                    // 7 => 'State',
+                    5 => 'Winner',
+                    6 => '1st Runner Up',
+                    7 => '2nd Runner Up',
                     // 8 => 'Country',
                     // 9 => 'Occupation',
                     // 10 => 'Company',
@@ -37,7 +37,7 @@
             @foreach ($fieldLabels as $index => $label)
                 @php $field = "value_$index"; @endphp
                 <div class="mb-3">
-                    <label for="{{ $field }}" class="form-label">{{ $label }}</label>
+                    <label for="{{ $field }}" class="form-label">{{ $index }}.  {{ $label }}</label>
 
                     @if ($index === 3|| $index === 4)
                         <input type="file" class="form-control" name="{{ $field }}" id="{{ $field }}">
