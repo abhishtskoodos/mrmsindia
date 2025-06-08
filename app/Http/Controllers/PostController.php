@@ -18,7 +18,7 @@ class PostController extends Controller
 
     function insertFromRequest(Request $request, string $table, array $fileFields = [], string $uploadFolder = '')
     {
-        $data = $request->except($fileFields); // sab normal fields le lo
+        $data = $request->except(array_merge($fileFields, ['_token', '_method'])); // sab normal fields le lo
 
         foreach ($fileFields as $field) {
             if ($request->hasFile($field)) {
@@ -43,7 +43,7 @@ class PostController extends Controller
             }
 
             $data = [];
-            $allFields = $request->except($fileFields);
+            $allFields = $request->except(array_merge($fileFields, ['_token', '_method']));
 
             foreach ($allFields as $key => $value) {
                 if (property_exists($existing, $key) && $existing->$key != $value) {
@@ -686,7 +686,7 @@ class PostController extends Controller
     public function showIndexForm()
     {
         $value = Value::findOrFail(1);
-        
+
         return view('admin.values.index', compact('value'));
     }
 
@@ -762,4 +762,56 @@ class PostController extends Controller
         Mediacoverage::findOrFail($request->id)->delete();
         return back()->with('success', 'mediacoverage deleted');
     }
+
+    public function city()
+    {
+        $data['records'] = DB::table('cities')->get();
+        $data['inputfields'] = ['name', 'title', 'image', 'alt', 'url', 'description'];
+        $data['title'] = 'City';
+        $data['route_prefix'] = 'city';
+
+        return view('admin.basic.index', $data);
+    }
+
+    public function city_store(Request $request)
+    {
+        $this->insertFromRequest($request, 'cities', ['image'], 'uploads/cities');
+
+        return redirect()->back()->with('success', 'City created successfully!');
+    }
+
+    public function city_edit(Request $request)
+    {
+        $id = $request->id;
+
+        $data['record'] = DB::table('cities')->where('id', $id)->first();
+        $data['inputfields'] = ['name', 'title', 'image', 'alt', 'url', 'description'];
+
+        $data['title'] = ucfirst('city');
+        $data['route_prefix'] = 'city';
+
+        return view('admin.basic.edit', $data);
+    }
+    public function city_update(Request $request)
+    {
+        $table = 'cities';
+        $id = $request->id;
+        $fileFields = ['image'];
+        $uploadFolder = 'uploads/cities';
+
+        $updated = $this->update($request, $table, $id, $fileFields, $uploadFolder);
+
+        if ($updated) {
+            return redirect()->back()->with('success', 'City updated successfully!');
+        } else {
+            return redirect()->back()->with('error', 'Update failed or no changes made.');
+        }
+    }
+
+    public function city_delete(Request $request)
+    {
+        DB::table('cities')->where('id', $request->id)->delete();
+        return back()->with('success', 'City deleted successfully.');
+    }
+    
 }

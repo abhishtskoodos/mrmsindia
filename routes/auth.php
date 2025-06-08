@@ -30,7 +30,7 @@ Route::middleware('guest')->group(function () {
 });
 
 
-function registerCrudRoutes($prefix)
+function registerCrudRoutes($name)
 {
     Route::get("/admin/{$name}", [PostController::class, "{$name}"])->name("{$name}.index");
     Route::post("/admin/{$name}/store", [PostController::class, "{$name}_store"])->name("{$name}.store");
@@ -102,6 +102,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/adminmediacoverageedit', [PostController::class, 'mediacoverageedit'])->name('mediacoverage.edit');
     Route::post('/adminmediacoverageupdate', [PostController::class, 'mediacoverageupdate'])->name('mediacoverage.update');
     Route::post('/adminmediacoveragedelete', [PostController::class, 'mediacoveragedelete'])->name('mediacoverage.delete');
+
+    registerCrudRoutes('city');
 
     Route::get('/admin/values', [PostController::class, 'showIndexForm'])->name('values.index');
     Route::post('/admin/values/update', [PostController::class, 'updateSingleValue'])->name('values.update');
