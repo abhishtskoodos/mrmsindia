@@ -62,8 +62,38 @@ class FrontController extends Controller
     public function show()
     {
         $data['value'] = Value::first();
+        $data['citys'] = DB::table('cities')->get();
+        $data['categories'] = Category::get();
 
         return view('frontend.show',$data);
+    }
+
+    public function show_registration(Request $request){
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:show_registration,email',
+            'contact_no' => 'required|string|max:20',
+            'city' => 'required|string|max:255',
+            'otp' => 'required|string|max:10',
+            'category' => 'required|string|max:255',
+        ]);
+    
+        try {
+            DB::table('show_registration')->insert([
+                'name'        => $validated['name'],
+                'email'       => $validated['email'],
+                'contact_no'  => $validated['contact_no'],
+                'city'        => $validated['city'],
+                'otp'         => $validated['otp'],
+                'category'    => $validated['category'],
+                'created_at'  => now(),
+            ]);
+    
+            return back()->with('success', '🎉 Registration successful!');
+        } catch (\Exception $e) {
+            Log::error('Registration failed: ' . $e->getMessage());
+            return back()->with('error', '❌ Something went wrong. Please try again.');
+        }
     }
 
     public function sponsers()

@@ -22,6 +22,7 @@ use App\Http\Controllers\FrontController;
 Route::get('/',[FrontController::class,'index'])->name('home');
 Route::get('/about',[FrontController::class,'about'])->name('about');
 Route::get('/show',[FrontController::class,'show'])->name('show');
+Route::post('/show',[FrontController::class,'show_registration'])->name('show');
 Route::get('/models',[FrontController::class,'models'])->name('models');
 Route::get('/models2',[FrontController::class,'models2'])->name('models2');
 Route::post('/pageant-registration', [FrontController::class, 'pageant_registration_store'])->name('pageant.registration.store');

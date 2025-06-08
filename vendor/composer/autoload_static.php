@@ -536,6 +536,7 @@ class ComposerStaticInitc61ff82cbf0142a401a48a8161e1595a
         'App\\Models\\Faq' => __DIR__ . '/../..' . '/app/Models/Faq.php',
         'App\\Models\\Guest' => __DIR__ . '/../..' . '/app/Models/Guest.php',
         'App\\Models\\Media' => __DIR__ . '/../..' . '/app/Models/Media.php',
+        'App\\Models\\MediaCoverage' => __DIR__ . '/../..' . '/app/Models/MediaCoverage.php',
         'App\\Models\\Modal' => __DIR__ . '/../..' . '/app/Models/Modal.php',
         'App\\Models\\PageantRegistration' => __DIR__ . '/../..' . '/app/Models/PageantRegistration.php',
         'App\\Models\\Post' => __DIR__ . '/../..' . '/app/Models/Post.php',
